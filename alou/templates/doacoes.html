@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+    
+    {% include 'nav_bar.html' %}
+
+    <div class="container">
+        <div class="content">
+            <div class = "tit"><h1>Faça a Diferença na Vida de um Cãozinho!</h1> </div>
+            <div class="donation-info">
+                <p>No Campus Dog, acreditamos que todo cão merece amor, cuidado e um lar aconchegante. Com a sua ajuda, podemos transformar a vida de muitos peludos que precisam de nós. Aceitamos doações de ração, dinheiro, produtos de higiene, roupinhas, cobertores e casinhas. Cada contribuição é fundamental para garantir que nossos amigos de quatro patas tenham uma vida mais digna e feliz.</p>
+                <p>Ao doar, você não está apenas ajudando um cãozinho a ter suas necessidades básicas atendidas, mas também está proporcionando a ele a chance de encontrar um novo lar e uma família amorosa. Seu gesto de carinho pode ser a diferença entre um dia frio e solitário e uma vida cheia de calor e cuidado.</p>
+                <p>Doe e faça parte dessa corrente de amor. Juntos, podemos transformar o futuro de muitos cães!</p>
+                <p class="address">Doação de itens: Estrada de Muzambinho, Bairro - Morro Preto, Muzambinho - MG, 37890-000 - Setor: Hospital Veterinário.</p>
+                <p>Doação de dinheiro: <a href="https://forms.gle/ynpktmNTkasomiMEA">https://forms.gle/ynpktmNTkasomiMEA</a>
+                </p>
+            </div>
+            <div class="panfleto text-center">
+                <img src="{% static 'images/panfleto.png' %}" class="img-fluid img" alt="panfleto">
+            </div>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+    {% bootstrap_javascript jquery='full'%}  
+    {% endblock %}

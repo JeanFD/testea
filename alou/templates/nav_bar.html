@@ -1,0 +1,46 @@
+{% load bootstrap4 %}
+{% load static %}
+<nav class="navbar navbar-expand-md navbar-dark sticky-top">
+    <!-- Logo à esquerda -->
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'images/logo.png' %}" height="30" class="d-inline-block align-top" alt="">
+        Campus Dog
+    </a>
+
+    <!-- Botão para expandir no mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Links centralizados no meio -->
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Doguinhos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'doacoes' %}">Doações</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'saiba_mais' %}">Saiba Mais</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contato' %}">Contato</a>
+            </li>
+        </ul>
+
+        <!-- Login/Logout à direita -->
+        <ul class="navbar-nav ml-auto">
+            {% if not user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">{{ user.first_name }}</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

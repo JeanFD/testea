@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+    
+    {% include 'nav_bar.html' %}
+
+    <div class="container cards">
+        {% for animal in animais %}
+            <div class="card wow doguinhos" style="width: 18rem;" data-toggle="modal" data-target="#animalModal"
+                data-id="{{ animal.id }}" 
+                data-nome="{{ animal.nome }}"
+                data-raca="{{ animal.raca }}"
+                data-idade="{{ animal.idade }}"
+                data-vacinado="{{ animal.vacinado|yesno:'Sim,Não' }}"
+                data-descricao="{{ animal.descricao_completa }}"
+                data-local="{{ animal.local }}"
+                data-foto="{{ animal.foto.thumb.url }}"
+                data-criado-por-nome="{{ animal.criado_por.first_name }} {{ animal.criado_por.last_name }}"
+                data-criado-por-telefone="{{ animal.criado_por.fone }}">
+                {% if animal.foto %}
+                    <img src="{{ animal.foto.thumb.url }}" class="card-img-top" alt="Foto de {{ animal.nome }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ animal.nome }}</h5>
+                    <p class="card-text">{{ animal.descricao }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+
+        <!-- Card de adicionar animal -->
+        {% if request.user.is_authenticated and request.user.is_staff %}
+            <div class="card wow add-card doguinhos" style="width: 18rem;" data-toggle="modal" data-target="#addAnimalModal">
+                <div class="card-body text-center d-flex align-items-center justify-content-center" style="height: 200px;">
+                    <h5 class="card-title">
+                        <i class="fas fa-plus-circle" style="font-size: 40px;"></i><br>
+                        Adicionar Animal
+                    </h5>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    
+    {% include 'footer.html' %}
+    {% include 'modal_dog.html' %}
+    {% include 'modal_adicionar_dog.html' %}
+    {% include 'confirmaDeleteModal.html' %}
+
+    <!-- <script>
+        // Quando o modal de detalhes do animal é aberto
+        $('#animalModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);  // Botão que abriu o modal
+            var nome = button.data('nome');
+            var id = button.data('id');
+    
+            // Preencher o modal de confirmação de exclusão
+            $('#deleteAnimalNome').text(nome);
+            $('#deleteAnimalId').val(id);
+        });
+    </script> -->
+{% endblock %}

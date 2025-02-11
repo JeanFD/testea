@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+    
+    {% include 'nav_bar.html' %}
+
+    <div class="container">
+        <div class="content">
+            <h1>Saiba Mais sobre o Campus Dog e a Importância da Adoção Responsável 🐶</h1>
+            <p>O Campus Dog nasceu de um amor incondicional pelos animais e da necessidade de dar voz e cuidado àqueles que mais precisam. Nossa missão é resgatar, cuidar e encontrar lares amorosos para cães que foram abandonados ou que vivem em situações vulneráveis. Acreditamos que cada cachorro merece uma vida digna, repleta de carinho e segurança.</p>
+            <p class="importante">A Importância da Causa</p>
+            <p>No Brasil, milhares de cães são abandonados todos os anos, e muitos acabam sofrendo nas ruas, expostos ao frio, fome e doenças. O abandono é uma realidade triste e desafiadora, mas, juntos, podemos fazer a diferença. Ao apoiar essa causa, você ajuda a mudar o destino desses animais, proporcionando-lhes uma nova chance de felicidade.</p>
+            <p class="importante">Adoção Responsável: Um Ato de Amor e Compromisso</p>
+            <p>Adotar um cão é um gesto lindo, mas também é um compromisso para a vida toda. No Campus Dog, incentivamos a adoção responsável, onde o futuro tutor está ciente das necessidades e responsabilidades que um animal de estimação exige. Desde o fornecimento de alimentos e cuidados veterinários até a dedicação de tempo e afeto, adotar um cão requer preparação e vontade de fazer parte da vida de um novo amigo.</p>
+            <p class="importante">Sobre o Campus Dog</p>
+            <p>Nosso site é um ponto de encontro entre corações que desejam fazer a diferença. Aqui, você pode conhecer cães que estão em busca de um lar, saber mais sobre como adotar de forma consciente e entender as diferentes maneiras de contribuir com essa causa. Além disso, trabalhamos para educar a sociedade sobre a importância do respeito e cuidado com os animais, promovendo campanhas e atividades que reforçam a necessidade de uma convivência harmoniosa entre humanos e cães.</p>
+            <p>A cada adoção, celebramos uma nova história de amor e companheirismo. E você, quer fazer parte dessa transformação? Venha conhecer mais sobre o Campus Dog e descubra como você pode ajudar a construir um futuro melhor para esses adoráveis companheiros!</p>
+            <img src="{% static 'images/banner1.jpg' %}" width="100%" alt="Banner 1" class="banner">
+            <img src="{% static 'images/banner2.jpg' %}" width="100%"alt="Banner 2" class="banner">
+        </div>
+    </div>
+    {% include 'footer.html' %}
+    {% bootstrap_javascript jquery='full'%}  
+    {% endblock %}

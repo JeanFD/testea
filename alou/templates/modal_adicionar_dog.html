@@ -1,0 +1,68 @@
+ <!-- Modal para adicionar animal -->
+ <div class="modal fade" id="addAnimalModal" tabindex="-1" aria-labelledby="addAnimalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addAnimalModalLabel">Adicionar Novo Doguinho</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{% url 'add_animal' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- Nome -->
+                    <div class="form-group">
+                        <label for="nome">Nome do Doguinho</label>
+                        <input type="text" class="form-control" id="nome" name="nome" maxlength="20" required autocomplete="off">
+                    </div>
+                    <!-- Raça -->
+                    <div class="form-group">
+                        <label for="raca">Raça</label>
+                        <input type="text" class="form-control" id="raca" name="raca" maxlength="100" required autocomplete="off">
+                    </div>
+                    <!-- Gênero -->
+                    <div class="form-group">
+                        <label for="genero">Gênero</label>
+                        <input type="text" class="form-control" id="genero" name="genero" maxlength="100" required autocomplete="off">
+                    </div>
+                    <!-- Idade -->
+                    <div class="form-group">
+                        <label for="idade">Idade (em anos)</label>
+                        <input type="number" class="form-control" id="idade" name="idade" required min="0">
+                    </div>
+                    <!-- Vacinado -->
+                    <div class="form-group">
+                        <label for="vacinado">Vacinado?</label>
+                        <select class="form-control" id="vacinado" name="vacinado">
+                            <option value="True">Sim</option>
+                            <option value="False">Não</option>
+                        </select>
+                    </div>
+                    <!-- Descrição curta -->
+                    <div class="form-group">
+                        <label for="descricao">Descrição Curta</label>
+                        <textarea class="form-control" id="descricao" name="descricao" rows="2" maxlength="56" required autocomplete="off"></textarea>
+                    </div>
+                    <!-- Descrição completa -->
+                    <div class="form-group">
+                        <label for="descricao_completa">Descrição Completa</label>
+                        <textarea class="form-control" id="descricao_completa" name="descricao_completa" rows="4" required autocomplete="off"></textarea>
+                    </div>
+                    <!-- Local -->
+                    <div class="form-group">
+                        <label for="descricao_completa">Local</label>
+                        <textarea class="form-control" id="local" name="local" rows="1" required autocomplete="off"></textarea>
+                    </div>
+                    <!-- Foto -->
+                    <div class="form-group">
+                        <label for="foto">Foto do Doguinho</label>
+                        <input type="file" class="form-control-file" id="foto" name="foto" required autocomplete="off">
+                    </div>
+                    <!-- Botão de enviar -->
+                    <button type="submit" class="btn btn-primary">Adicionar Doguinho</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

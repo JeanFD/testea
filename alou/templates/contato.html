@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+    
+    {% include 'nav_bar.html' %}
+    
+    <div class="container">
+        <div>
+            <h1>Voluntarios</h1>
+            <p>Para qualquer dúvida entre em contato!</p>
+        </div>
+        <div class="container cards">
+            {% for voluntario in voluntarios %}
+            <div class="card" style="width: 12rem;">
+                {% if voluntario.img %}
+                    <img src="{{ voluntario.img.thumb.url }}" class="card-img-top" alt="...">
+                {% endif%}
+                <div class="card-body">
+                    <h5 class="card-title">{{ voluntario.nome}}</h5>
+                    <p class="card-text">{{ voluntario.email }}</p>
+                  
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- <div class="team">
+            <div class="member">
+                <img src="{% static 'images/barbie.jpg' %}" class="img-fluid img" alt="Integrante 1">
+                <h3>Yasmin Pereira Pasqua</h3>
+                <p>Email: yasmin.pasqua</p>
+                
+            </div>
+            <div class="member">
+                <img src="{% static 'images/2.png' %}" alt="Integrante 2">
+                <h3>Gabriel Ribeiro Rodrigues</h3>
+                <p>Email: gabriel.ribeiro</p>
+            </div>
+            <div class="member">
+                <img src="{% static 'images/1.png' %}" alt="Integrante 3">
+                <h3>Jean Ferreira Dias</h3>
+                <p>Email: jean.dias</p>
+            </div>
+            <div class="member">
+                <img src="{% static 'images/4.jpg' %}" alt="Integrante 4">
+                <h3>Lara Viana Domingos</h3>
+                <p>Email: lara.domingos</p>
+            </div>
+        </div> -->
+    </div> 
+    {% include 'footer.html' %}
+    {% bootstrap_javascript jquery='full'%}  
+    {% endblock %}
