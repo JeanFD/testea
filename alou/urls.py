@@ -8,7 +8,7 @@ from . import views
 # route.register(r'usuario', animalviewswts.UsuarioViewSet, basename='Usuario')
 
 urlpatterns = [
-    # path('', views.index, name='index'),
+    path('', views.index, name='index'),
     # path('doacoes', views.doacoes, name='doacoes'),
     # path('saiba_mais', views.saiba_mais, name='saiba_mais'),
     # path('contato', views.contato, name='contato'),
